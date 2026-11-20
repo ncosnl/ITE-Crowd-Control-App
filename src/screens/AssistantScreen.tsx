@@ -30,7 +30,6 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
     if (node) node.scrollTop = node.scrollHeight;
   }, [messages, typing]);
 
-  // The stream keeps `typing` true, so hide the dots once the reply is growing.
   const waiting = typing && messages[messages.length - 1]?.role !== 'bot';
 
   const submit = (event: FormEvent) => {
@@ -42,20 +41,20 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
   };
 
   return (
-    <div className="screen assistant-screen">
-      <header className="chat-head">
-        <div className="chat-avatar">
+    <div className="flex-1 min-h-0 flex flex-col w-full relative assistant-screen">
+      <header className="flex-none px-4 pb-12 pt-[4px] text-center">
+        <div className="flex-none size-[40px] grid place-items-center mx-auto mb-8 rounded-full bg-[var(--brand)] shadow-[0_7px_14px_-7px_rgba(232,121,47,0.95)]">
           <Icon name="sparkle" size={22} />
         </div>
-        <h1 className="chat-title">Crowd Assistant</h1>
-        <p className="chat-sub">Here to help with your mall trip</p>
+        <h1 className="m-0 text-[13.5px] font-semibold">Crowd Assistant</h1>
+        <p className="mt-3 text-[10px] text-[#9a9ea8]">Here to help with your mall trip</p>
       </header>
 
-      <div className="chat-scroll" ref={scrollRef}>
+      <div className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-9 p-[4px_14px_10px] scrollbar-none" ref={scrollRef}>
         {messages.map((message) => {
           if (message.role === 'user') {
             return (
-              <div key={message.id} className="msg msg-user">
+              <div key={message.id} className="flex justify-end">
                 <div className="bubble bubble-user">{message.text}</div>
               </div>
             );
@@ -63,7 +62,7 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
 
           if (message.kind === 'list') {
             return (
-              <div key={message.id} className="msg msg-bot">
+              <div key={message.id} className="flex msg-bot">
                 <div className="bubble bubble-bot list-bubble">
                   <p className="list-title">{message.title}</p>
                   <div className="rank-list">
@@ -89,7 +88,7 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
           }
 
           return (
-            <div key={message.id} className="msg msg-bot">
+            <div key={message.id} className="flex msg-bot">
               <div className="bubble bubble-bot">
                 <RichText text={message.text ?? ''} />
               </div>
@@ -98,7 +97,7 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
         })}
 
         {waiting && (
-          <div className="msg msg-bot">
+          <div className="flex msg-bot">
             <div className="bubble bubble-bot typing" aria-label="Assistant is typing">
               <span />
               <span />
@@ -108,7 +107,7 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
         )}
       </div>
 
-      <form className="chat-input-row" onSubmit={submit}>
+      <form className="flex-none flex items-center gap-8 p-[8px_14px_2px]" onSubmit={submit}>
         <input
           className="chat-input"
           value={draft}
@@ -121,7 +120,7 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
           <Icon name="send" size={17} strokeWidth={2.2} />
         </button>
       </form>
-      <span className="chat-context">{mallName} · live crowd data</span>
+      <span className="flex-none pt-2 pb-8 text-center text-[8.5px] text-[#b6b9c1]">{mallName} · live crowd data</span>
     </div>
   );
 }

@@ -17,15 +17,15 @@ export function PlacesScreen({ mall, places, onBack, onOpenPlace }: Props) {
   const busiest = ranked[ranked.length - 1];
 
   return (
-    <div className="screen">
-      <div className="screen-scroll">
-        <header className="screen-head">
+    <div className="flex-1 min-h-0 flex flex-col w-full relative">
+      <div className="flex-1 min-h-0 overflow-y-auto p-[6px_16px_16px] scrollbar-none">
+        <header className="relative flex items-center gap-6 pb-14 pt-[4px]">
           <button type="button" className="back-btn" onClick={onBack} aria-label="Back to home">
             <Icon name="arrowLeft" size={18} strokeWidth={2} />
           </button>
-          <div className="screen-head-text">
-            <h1>Places at {mall.name}</h1>
-            <p>Live crowd levels</p>
+          <div className="flex-1 pr-24 text-center">
+            <h1 className="m-0 text-[13.5px] font-semibold tracking-[-0.01em]">Places at {mall.name}</h1>
+            <p className="mt-3 text-[10px] text-[#9a9ea8]">Live crowd levels</p>
           </div>
         </header>
 

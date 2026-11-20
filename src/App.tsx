@@ -9,6 +9,7 @@ import type { ChatMsg } from './chat';
 import { statusOf } from './data';
 import { fetchLiveCrowd, forecastLabels, streamAssistant } from './live';
 import type { ChatTurn, LiveCrowd } from './live';
+import { applyNativeChrome } from './native';
 import { HomeScreen } from './screens/HomeScreen';
 import { PlacesScreen } from './screens/PlacesScreen';
 import { PredictionsScreen } from './screens/PredictionsScreen';
@@ -74,6 +75,7 @@ export default function App() {
       meta.setAttribute('content', theme === 'dark' ? '#0a0b0f' : '#faf9f7');
     }
     localStorage.setItem('crowd-control-theme', theme);
+    applyNativeChrome(theme);
   }, [theme]);
 
   const mall = MALLS.find((item) => item.id === mallId) ?? MALLS[0];

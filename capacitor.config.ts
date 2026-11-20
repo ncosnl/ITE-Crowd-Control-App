@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 /**
- * The Android app bundles `dist/` locally and calls the deployed server for
+ * The Android app bundles `dist-native/` locally and calls the deployed server for
  * crowd data and chat. Set VITE_API_BASE before building (see
  * scripts/build-android.mjs) so the WebView knows where that server lives.
  */
@@ -13,6 +13,21 @@ const config: CapacitorConfig = {
   webDir: 'dist-native',
   android: {
     allowMixedContent: false,
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 1000,
+      launchAutoHide: true,
+      backgroundColor: '#0a0b0f',
+      androidSplashResourceName: 'splash',
+      androidScaleType: 'CENTER_CROP',
+      showSpinner: false,
+    },
+    StatusBar: {
+      style: 'DARK',
+      backgroundColor: '#faf9f7',
+      overlaysWebView: false,
+    },
   },
 };
 

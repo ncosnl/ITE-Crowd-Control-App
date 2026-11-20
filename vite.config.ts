@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
-import type { Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 // The cloud preview hostname changes whenever the workspace is restored, so it is
 // supplied per process through PREVIEW_HOSTS (comma separated) instead of being
@@ -105,7 +105,7 @@ self.addEventListener('fetch', (event) => {
 }
 
 export default defineConfig({
-  plugins: [react(), serviceWorker()],
+  plugins: [react(), tailwindcss()],
   server: {
     host: '0.0.0.0',
     port: 3000,
