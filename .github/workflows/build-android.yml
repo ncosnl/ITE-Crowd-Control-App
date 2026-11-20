@@ -1,0 +1,69 @@
+name: Build Android APK
+
+on:
+  # Run manually from the Actions tab (optionally with a server URL).
+  workflow_dispatch:
+    inputs:
+      api_url:
+        description: Deployed server URL, e.g. https://your-app.onrender.com (overrides the NATIVE_API_BASE variable)
+        required: false
+        type: string
+  # Pushing a tag like v0.1.0 builds the APK and attaches it to a GitHub Release.
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write # needed to attach the APK to a release
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # scripts/build-android.mjs reads this and bakes it into the app bundle.
+      NATIVE_API_BASE: ${{ inputs.api_url || vars.NATIVE_API_BASE }}
+    steps:
+      - name: Check server URL
+        run: |
+          if [[ ! "$NATIVE_API_BASE" =~ ^https?:// ]]; then
+            echo "::error::No server URL. Run the workflow with the api_url input, or add a repository variable named NATIVE_API_BASE (Settings > Secrets and variables > Actions > Variables)."
+            exit 1
+          fi
+          echo "Building against $NATIVE_API_BASE"
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Capacitor 8 needs JDK 21. setup-java sets JAVA_HOME, which the build script uses.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
+
+      # The runner already has the Android SDK and sets ANDROID_HOME.
+      - name: Build APK
+        run: npm run android:build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crowd-control-debug-apk
+          path: artifacts/crowd-control-debug.apk
+          if-no-files-found: error
+
+      - name: Attach APK to release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/crowd-control-debug.apk
