@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --canvas: #e9ebf1;
+  --phone: #fbfaf8;
+  --ink: #26262e;
+  --ink-soft: #5b5f69;
+  --muted: #9a9ea8;
+  --line: #efece6;
+  --brand: #e8792f;
+  --brand-soft: #fdeee3;
+  --teal: #1f9d8f;
+  --amber: #dfa13c;
+  --coral: #dd5f37;
+}
+
+[data-theme="dark"] {
+  --canvas: #0a0b0f;
+  --phone: #121419;
+  --ink: #e8e8ea;
+  --ink-soft: #b9bdc6;
+  --muted: #737884;
+  --line: #23262e;
+  --brand: #f29152;
+  --brand-soft: #2d1a0b;
+  --teal: #4fc3a8;
+  --amber: #e8c26a;
+  --coral: #f0855c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 @layer base {
   html,
   body,
