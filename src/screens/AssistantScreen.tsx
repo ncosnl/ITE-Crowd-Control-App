@@ -47,7 +47,7 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
           <Icon name="sparkle" size={22} />
         </div>
         <h1 className="m-0 text-[13.5px] font-semibold">Crowd Assistant</h1>
-        <p className="mt-3 text-[10px] text-[#9a9ea8]">Here to help with your mall trip</p>
+        <p className="mt-3 text-[10px] text-[var(--muted)]">Here to help with your mall trip</p>
       </header>
 
       <div className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-9 p-[4px_14px_10px] scrollbar-none" ref={scrollRef}>
@@ -120,7 +120,7 @@ export function AssistantScreen({ mallName, messages, typing, onSend }: Props) {
           <Icon name="send" size={17} strokeWidth={2.2} />
         </button>
       </form>
-      <span className="flex-none pt-2 pb-8 text-center text-[8.5px] text-[#b6b9c1]">{mallName} · live crowd data</span>
+      <span className="flex-none pt-2 pb-8 text-center text-[8.5px] text-[var(--ink-soft)]">{mallName} · live crowd data</span>
     </div>
   );
 }

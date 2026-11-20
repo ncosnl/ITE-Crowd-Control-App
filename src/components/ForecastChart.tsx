@@ -60,8 +60,8 @@ export function ForecastChart({ values, labels }: Props) {
         <svg viewBox={`0 0 ${W} ${H}`} className="chart-svg" aria-label="Crowd forecast for today">
           <defs>
             <linearGradient id="forecastFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e8792f" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#e8792f" stopOpacity="0" />
+              <stop offset="0%" stopColor="var(--brand)" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="var(--brand)" stopOpacity="0" />
             </linearGradient>
           </defs>
           {[TOP, 38, 66, 94, BOTTOM].map((y) => (
@@ -71,7 +71,7 @@ export function ForecastChart({ values, labels }: Props) {
               y1={y}
               x2={RIGHT}
               y2={y}
-              stroke="#f0ece5"
+              stroke="var(--surface-line)"
               strokeWidth="1"
               strokeDasharray="3 5"
             />
@@ -80,18 +80,18 @@ export function ForecastChart({ values, labels }: Props) {
           <path
             d={line}
             fill="none"
-            stroke="#e8792f"
+            stroke="var(--brand)"
             strokeWidth="2.6"
             strokeLinecap="round"
             strokeDasharray="0.5 6"
           />
-          <circle cx={peak[0]} cy={peak[1]} r="4.6" fill="#fff" stroke="#e8792f" strokeWidth="2.6" />
+          <circle cx={peak[0]} cy={peak[1]} r="4.6" fill="var(--surface)" stroke="var(--brand)" strokeWidth="2.6" />
           <text
             x={Math.min(peak[0] + 9, RIGHT - 18)}
             y={Math.max(peak[1] - 7, 12)}
             fontSize="11"
             fontWeight="700"
-            fill="#c4561b"
+            fill="var(--brand-dark)"
             fontFamily="inherit"
           >
             {values[peakIndex]}%

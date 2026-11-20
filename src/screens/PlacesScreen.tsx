@@ -25,7 +25,7 @@ export function PlacesScreen({ mall, places, onBack, onOpenPlace }: Props) {
           </button>
           <div className="flex-1 pr-24 text-center">
             <h1 className="m-0 text-[13.5px] font-semibold tracking-[-0.01em]">Places at {mall.name}</h1>
-            <p className="mt-3 text-[10px] text-[#9a9ea8]">Live crowd levels</p>
+            <p className="mt-3 text-[10px] text-[var(--muted)]">Live crowd levels</p>
           </div>
         </header>
 

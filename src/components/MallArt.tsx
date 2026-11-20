@@ -1,7 +1,7 @@
 export function MallArt() {
   return (
     <svg viewBox="0 0 280 96" className="mall-art" aria-hidden="true">
-      <g fill="none" stroke="#efe2d5" strokeWidth="1.1" strokeLinejoin="round" strokeLinecap="round">
+      <g fill="none" stroke="var(--brand-soft)" strokeWidth="1.1" strokeLinejoin="round" strokeLinecap="round">
         <path d="M6 78h268" />
         <path d="M30 78V44h52v34" />
         <path d="M30 44l6-9h40l6 9" />

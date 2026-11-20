@@ -29,7 +29,7 @@ export function PredictionsScreen({ mall, places, selected, updatedAt, onBack }:
           </button>
           <div className="flex-1 pr-24 text-center">
             <h1 className="m-0 text-[13.5px] font-semibold tracking-[-0.01em]">Predictions</h1>
-            <p className="mt-3 text-[10px] text-[#9a9ea8]">
+            <p className="mt-3 text-[10px] text-[var(--muted)]">
               {selected.name} · {mall.name}
             </p>
           </div>

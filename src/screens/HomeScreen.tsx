@@ -30,16 +30,16 @@ export function HomeScreen({ mall, selected, updatedAt, dataSource, onMallChange
             <Icon name="crowd" size={24} />
           </div>
           <div className="min-w-0">
-            <h1 className="m-0 text-[20px] font-bold tracking-[-0.03em] leading-1.15 text-[#22212a]">
+            <h1 className="m-0 text-[20px] font-bold tracking-[-0.03em] leading-1.15 text-[var(--ink)]">
               Crowd Control
             </h1>
-            <p className="m-[2px_0_0] text-[10.5px] leading-1.3 tracking-[0.005em] text-[#9498a4] whitespace-nowrap overflow-hidden text-ellipsis">
+            <p className="m-[2px_0_0] text-[10.5px] leading-1.3 tracking-[0.005em] text-[var(--muted)] whitespace-nowrap overflow-hidden text-ellipsis">
               Live crowd data for Philippine malls
             </p>
           </div>
           <button
             type="button"
-            className="ml-auto flex-none size-[32px] grid place-items-center rounded-8 border-0 bg-[#f0ede7] text-[#4b4d57] cursor-pointer transition-all duration-150 tap-highlight-transparent active:scale-92"
+            className="ml-auto flex-none size-[32px] grid place-items-center rounded-8 border-0 bg-[var(--surface-line)] text-[var(--ink-soft)] cursor-pointer transition-all duration-150 tap-highlight-transparent active:scale-92"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             onClick={onThemeToggle}
           >
@@ -47,20 +47,20 @@ export function HomeScreen({ mall, selected, updatedAt, dataSource, onMallChange
           </button>
         </header>
 
-        <div className="m-0 mb-7 ml-2 text-[9.5px] font-semibold tracking-[0.1em] text-[#9a9da7]">MALL</div>
+        <div className="m-0 mb-7 ml-2 text-[9.5px] font-semibold tracking-[0.1em] text-[var(--muted)]">MALL</div>
         <MallPicker mallId={mall.id} onChange={onMallChange} />
 
-        <section className="flex-1 min-h-0 flex flex-col items-center p-[16px_16px_0] overflow-hidden rounded-[18px] border border-[#f0ede7]/0.9 bg-white shadow-[0_1px_2px_rgba(24,26,38,0.05),0_14px_26px_-24px_rgba(24,26,38,0.6)]">
-          <p className="m-0 self-start text-[11px] text-[#9599a4]">Current crowd at</p>
+        <section className="flex-1 min-h-0 flex flex-col items-center p-[16px_16px_0] overflow-hidden rounded-[18px] border border-[var(--surface-line)]/0.9 bg-[var(--surface)] shadow-[0_1px_2px_rgba(24,26,38,0.05),0_14px_26px_-24px_rgba(24,26,38,0.6)]">
+          <p className="m-0 self-start text-[11px] text-[var(--ink-soft)]">Current crowd at</p>
           <h2 className="m-[2px_0_0] self-start text-[16px] font-semibold tracking-[-0.01em]">
             {selected.name}
           </h2>
 
           <div className="mt-9 self-start flex items-center gap-10">
-            <span className={`text-[13px] font-medium ${isBusy === 'light' ? 'text-[#1f9d8f]' : isBusy === 'moderate' ? 'text-[#dc7a2a]' : 'text-[#d95a33]'}`}>
+            <span className={`text-[13px] font-medium ${isBusy === 'light' ? 'text-[var(--teal)]' : isBusy === 'moderate' ? 'text-[var(--amber)]' : 'text-[var(--coral)]'}`}>
               {headlineOf(selected.pct)}
             </span>
-            <span className="relative flex gap-2 w-[63px] h-[11px] text-[#f3d8c4]">
+            <span className="relative flex gap-2 w-[63px] h-[11px] text-[var(--brand-soft)]">
               {Array.from({ length: 5 }).map((_, index) => (
                 <Icon
                   key={index}
@@ -83,19 +83,19 @@ export function HomeScreen({ mall, selected, updatedAt, dataSource, onMallChange
           </div>
 
           <div className="text-center mt-4">
-            <div className="text-[30px] font-extrabold tracking-[-0.04em] leading-1.05 text-[#232229]">
+            <div className="text-[30px] font-extrabold tracking-[-0.04em] leading-1.05 text-[var(--ink)]">
               {selected.pct}
-              <span className="text-[19px]">%</span> <em className="text-[11.5px] font-medium tracking-[0] text-[#8e929d]">occupied</em>
+              <span className="text-[19px]">%</span> <em className="text-[11.5px] font-medium tracking-[0] text-[var(--ink-soft)]">occupied</em>
             </div>
-            <div className="mt-4 text-[11px] text-[#9a9ea8]">Right now</div>
+            <div className="mt-4 text-[11px] text-[var(--muted)]">Right now</div>
           </div>
 
           <div className="flex items-center flex-wrap gap-7 mt-11">
-            <div className="inline-flex items-center gap-5 px-10 py-4.5 rounded-full border border-[#f0ede7] bg-[#f8f6f2] text-[#9a9ea8] text-[9.5px] whitespace-nowrap">
+            <div className="inline-flex items-center gap-5 px-10 py-4.5 rounded-full border border-[var(--surface-line)] bg-[var(--surface-soft)] text-[var(--muted)] text-[9.5px] whitespace-nowrap">
               <Icon name="clock" size={12} strokeWidth={1.9} />
               Last updated {formatTime(updatedAt)}
             </div>
-            <span className={`inline-flex items-center gap-4 px-9 py-4.5 rounded-full border border-[#f0ede7] bg-[#f8f6f2] text-[#9a9ea8] text-[9.5px] whitespace-nowrap ${dataSource === 'live' ? 'border-[rgba(31,157,143,0.28)] bg-[rgba(31,157,143,0.1)] text-[#17796e] font-semibold animate-live-pulse' : ''}`}>
+            <span className={`inline-flex items-center gap-4 px-9 py-4.5 rounded-full border border-[var(--surface-line)] bg-[var(--surface-soft)] text-[var(--muted)] text-[9.5px] whitespace-nowrap ${dataSource === 'live' ? 'border-[rgba(31,157,143,0.28)] bg-[rgba(31,157,143,0.1)] text-[var(--teal)] font-semibold animate-live-pulse' : ''}`}>
               {sourceLabel}
             </span>
           </div>

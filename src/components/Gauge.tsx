@@ -3,7 +3,7 @@ const CY = 96;
 const R = 76;
 const STROKE = 14;
 
-const BAND_COLORS = ['#1f9d8f', '#e9b23f', '#ee8f37', '#d95a33'];
+const BAND_COLORS = ['var(--teal)', 'var(--amber)', 'var(--brand)', 'var(--coral)'];
 /** Light, moderate, busy, packed — as fractions of the sweep. */
 const BOUNDARIES = [0, 0.4, 0.55, 0.78, 1];
 
@@ -42,7 +42,7 @@ export function Gauge({ percent }: { percent: number }) {
         y1={CY}
         x2="178"
         y2={CY}
-        stroke="#d8d4cd"
+        stroke="var(--surface-line)"
         strokeWidth="2.4"
         strokeDasharray="0.5 6.5"
         strokeLinecap="round"
@@ -59,8 +59,8 @@ export function Gauge({ percent }: { percent: number }) {
         />
       ))}
 
-      <circle cx={leftCap[0]} cy={leftCap[1]} r={STROKE / 2} fill={BAND_COLORS[0]} />
-      <circle cx={rightCap[0]} cy={rightCap[1]} r={STROKE / 2} fill={BAND_COLORS[3]} />
+      <circle cx={leftCap[0]} cy={leftCap[1]} r={STROKE / 2} fill="var(--teal)" />
+      <circle cx={rightCap[0]} cy={rightCap[1]} r={STROKE / 2} fill="var(--coral)" />
 
       <line
         className="gauge-needle"
@@ -68,11 +68,11 @@ export function Gauge({ percent }: { percent: number }) {
         y1={CY}
         x2={needleX}
         y2={needleY}
-        stroke="#26242c"
+        stroke="var(--ink)"
         strokeWidth="3.4"
         strokeLinecap="round"
       />
-      <circle cx={CX} cy={CY} r="4.2" fill="#26242c" />
+      <circle cx={CX} cy={CY} r="4.2" fill="var(--ink)" />
     </svg>
   );
 }
