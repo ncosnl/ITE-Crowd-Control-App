@@ -1,0 +1,82 @@
+{
+  "smc-food-court": {
+    "venueId": "ven_4d625665325f366f727a7a524d7a6c33364c674332794c4a496843",
+    "venueName": "Manam Comfort Filipino",
+    "venueAddress": "SM North, Epifanio de los Santos Ave, Bago Bantay, Quezon City, Metro Manila, Philippines"
+  },
+  "smc-supermarket": {
+    "venueId": "ven_4168796b6d57647a722d54524d7a6c336963626838314a4a496843",
+    "venueName": "SM Supermarket North EDSA",
+    "venueAddress": "North Ave. cor. EDSA, Brgy. Pagasa I, Quezon City 1105, Metro Manila, Philippines"
+  },
+  "smc-department-store": {
+    "venueId": "ven_77396850375a3064576d4c524d7a6c33657363725963384a496843",
+    "venueName": "SM City North EDSA",
+    "venueAddress": "North Avenue corner Epifanio de los Santos Ave, Quezon City 1100, Metro Manila, Philippines"
+  },
+  "smc-cinema": {
+    "venueId": "ven_6f30374141466276356b4e524d7a6c324b4f33793361364a496843",
+    "venueName": "SM Cinema North EDSA and IMAX with Laser",
+    "venueAddress": "2F SM City North EDSA, North Avenue corner EDSA, Diliman, Quezon City, Metro Manila, Philippines"
+  },
+  "smc-cyberzone": {
+    "venueId": "ven_496449544138564e50514f524d7a6c324b4f365759377a4a496843",
+    "venueName": "SM Appliance Center",
+    "venueAddress": "Ground Floor, SM City North EDSA Main Bldg., Bagong Pag-asa, Quezon City, Metro Manila, Philippines"
+  },
+  "smc-north-dining": {
+    "venueId": "ven_774151443862633778362d524d7a6c33536451545551504a496843",
+    "venueName": "North Towers SM North EDSA",
+    "venueAddress": "SM City North EDSA, Quezon City, Metro Manila, Philippines"
+  },
+  "moa-food-hall": {
+    "venueId": "ven_4141785773656d47796b50524d7a6c4c7a7354487a2d544a496843",
+    "venueName": "SM Food Hall | MOA",
+    "venueAddress": "SM Mall of Asia, Seaside Boulevard, Pasay City, Metro Manila, Philippines"
+  },
+  "moa-seaside-dining": {
+    "venueId": "ven_6f6348434d415259546b35524d7a6c4c765045567a56714a496843",
+    "venueName": "Tong Yang, SM Mall of Asia",
+    "venueAddress": "SM Mall of Asia, Seaside Boulevard, Pasay City, Metro Manila, Philippines"
+  },
+  "moa-atrium": {
+    "venueId": "ven_67755146306e4c7739786d524d7a6c4c7a50686f3434314a496843",
+    "venueName": "SM Mall of Asia",
+    "venueAddress": "Seaside Boulevard, Pasay City, Metro Manila, Philippines"
+  },
+  "moa-imax": {
+    "venueId": "ven_41504f75502d6b65695f43524d7a6c4c587673363558714a496843",
+    "venueName": "SM MOA - North Wing",
+    "venueAddress": "SM Mall of Asia, Seaside Boulevard, Pasay City, Metro Manila, Philippines"
+  },
+  "moa-cyberzone": {
+    "venueId": "ven_63654b4c67427366516166524d7a6c4c7a7642707831614a496843",
+    "venueName": "S Maison",
+    "venueAddress": "Seaside Boulevard, Pasay City, Metro Manila, Philippines"
+  },
+  "ayc-food-choices": {
+    "venueId": "ven_4951386965314972465161524d54715a367a2d4d3458534a496843",
+    "venueName": "Casa Verde",
+    "venueAddress": "Ayala Center Cebu, Cebu Business Park, Cebu City, Philippines"
+  },
+  "ayc-terraces": {
+    "venueId": "ven_6b6477734f744c72367372524d54715a2d5441456e36524a496843",
+    "venueName": "Ayala Terraces",
+    "venueAddress": "Ayala Center Cebu, Cebu Business Park, Cebu City, Philippines"
+  },
+  "ayc-metro": {
+    "venueId": "ven_597872756c4a5378527841524d54715a367a5f44412d774a496843",
+    "venueName": "Metro Supermarket",
+    "venueAddress": "Ayala Center Cebu, Cebu Business Park, Cebu City, Philippines"
+  },
+  "ayc-cinema": {
+    "venueId": "ven_30626664445f4f76587878524d54715a436b37755239614a496843",
+    "venueName": "Ayala Center Cebu",
+    "venueAddress": "Cebu Business Park, Cebu City, Philippines"
+  },
+  "ayc-kids": {
+    "venueId": "ven_6f335f426c4469566c722d524d54715a366a6b397934754a496843",
+    "venueName": "Active Zone",
+    "venueAddress": "Ayala Center Cebu, Cebu Business Park, Cebu City, Philippines"
+  }
+}
