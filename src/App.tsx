@@ -59,6 +59,23 @@ export default function App() {
   const [messages, setMessages] = useState<ChatMsg[]>(() => seedChat(MALLS[0], MALLS[0].places));
   const [typing, setTyping] = useState(false);
 
+  // Theme: persisted in localStorage, falls back to the system preference.
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window === 'undefined') return 'light';
+    const stored = localStorage.getItem('crowd-control-theme') as 'light' | 'dark' | null;
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      meta.setAttribute('content', theme === 'dark' ? '#0a0b0f' : '#faf9f7');
+    }
+    localStorage.setItem('crowd-control-theme', theme);
+  }, [theme]);
+
   const mall = MALLS.find((item) => item.id === mallId) ?? MALLS[0];
 
   const liveRef = useRef<Record<string, LiveCrowd>>({});
@@ -232,6 +249,8 @@ export default function App() {
         updatedAt={dataUpdatedAt}
         dataSource={dataSource}
         onMallChange={changeMall}
+        theme={theme}
+        onThemeToggle={() => setTheme((previous) => (previous === 'light' ? 'dark' : 'light'))}
       />
     ),
     places: (

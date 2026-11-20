@@ -24,7 +24,9 @@ export type IconName =
   | 'person'
   | 'signal'
   | 'wifi'
-  | 'battery';
+  | 'battery'
+  | 'sun'
+  | 'moon';
 
 const PATHS: Record<IconName, ReactNode> = {
   crowd: (
@@ -136,6 +138,17 @@ const PATHS: Record<IconName, ReactNode> = {
       <rect x="2" y="8" width="18" height="8" rx="2.4" />
       <rect x="4" y="10" width="12" height="4" rx="1" fill="currentColor" stroke="none" />
       <path d="M22 11v2" />
+    </>
+  ),
+  sun: (
+    <>
+      <circle cx="12" cy="12" r="5" fill="currentColor" stroke="none" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" fill="currentColor" stroke="none" />
+    </>
+  ),
+  moon: (
+    <>
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor" stroke="none" />
     </>
   ),
 };

@@ -62,7 +62,16 @@ export function Gauge({ percent }: { percent: number }) {
       <circle cx={leftCap[0]} cy={leftCap[1]} r={STROKE / 2} fill={BAND_COLORS[0]} />
       <circle cx={rightCap[0]} cy={rightCap[1]} r={STROKE / 2} fill={BAND_COLORS[3]} />
 
-      <line x1={CX} y1={CY} x2={needleX} y2={needleY} stroke="#26242c" strokeWidth="3.4" strokeLinecap="round" />
+      <line
+        className="gauge-needle"
+        x1={CX}
+        y1={CY}
+        x2={needleX}
+        y2={needleY}
+        stroke="#26242c"
+        strokeWidth="3.4"
+        strokeLinecap="round"
+      />
       <circle cx={CX} cy={CY} r="4.2" fill="#26242c" />
     </svg>
   );

@@ -12,6 +12,20 @@
   --coral: #dd5f37;
 }
 
+[data-theme="dark"] {
+  --canvas: #0a0b0f;
+  --phone: #121419;
+  --ink: #e8e8ea;
+  --ink-soft: #b9bdc6;
+  --muted: #737884;
+  --line: #23262e;
+  --brand: #f29152;
+  --brand-soft: #2d1a0b;
+  --teal: #4fc3a8;
+  --amber: #e8c26a;
+  --coral: #f0855c;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -33,14 +47,25 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+[data-theme="dark"] body {
+  background-image: radial-gradient(circle at 1px 1px, #23262e 1px, transparent 0);
+}
+
 button {
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 button:focus-visible,
 input:focus-visible {
   outline: 2px solid rgba(232, 121, 47, 0.55);
   outline-offset: 2px;
+}
+
+[data-theme="dark"] button:focus-visible,
+[data-theme="dark"] input:focus-visible {
+  outline-color: rgba(242, 145, 82, 0.55);
 }
 
 /* ---------------------------------------------------------------- stage */
@@ -156,6 +181,8 @@ input:focus-visible {
 }
 
 .nav-item {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -169,7 +196,11 @@ input:focus-visible {
   font-size: 9.5px;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.15s;
+  transition: color 0.15s, transform 0.1s ease;
+}
+
+.nav-item:active {
+  transform: scale(0.95);
 }
 
 .nav-item.active {
@@ -178,6 +209,23 @@ input:focus-visible {
 }
 
 .nav-item:hover {
+  color: var(--brand);
+}
+
+[data-theme="dark"] .bottom-nav {
+  background: #16181f;
+  border-top-color: #23262e;
+}
+
+[data-theme="dark"] .nav-item {
+  color: #6b707c;
+}
+
+[data-theme="dark"] .nav-item.active {
+  color: var(--brand);
+}
+
+[data-theme="dark"] .nav-item:hover {
   color: var(--brand);
 }
 
@@ -229,6 +277,31 @@ input:focus-visible {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.theme-toggle {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: #f0ede7;
+  color: #4b4d57;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: #23262e;
+  color: #e8e8ea;
 }
 
 .field-label {
@@ -345,7 +418,7 @@ input:focus-visible {
 
 .hero-card {
   flex: 1;
-  min-height: 430px;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -422,8 +495,8 @@ input:focus-visible {
 
 .gauge-wrap {
   width: 100%;
-  max-width: 252px;
-  margin: 12px auto 0;
+  max-width: 290px;
+  margin: 14px auto 0;
   display: flex;
   justify-content: center;
 }
@@ -435,15 +508,15 @@ input:focus-visible {
 }
 
 .gauge-caption {
-  margin-top: 2px;
+  margin-top: 4px;
   text-align: center;
 }
 
 .gauge-pct {
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
   color: #232229;
 }
 
@@ -1199,6 +1272,144 @@ input:focus-visible {
   color: #b6b9c1;
 }
 
+/* ----------------------------------------------------------- dark theme surfaces */
+
+[data-theme="dark"] .statusbar { color: #e8e8ea; }
+
+[data-theme="dark"] .col-label { color: #9397a2; }
+[data-theme="dark"] .col-label.focused { color: var(--brand); }
+
+[data-theme="dark"] .phone {
+  background: var(--phone);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .mall-picker-btn {
+  background: #16181f;
+  border-color: #2a2d35;
+  color: #e8e8ea;
+}
+
+[data-theme="dark"] .mall-picker-btn.open { border-color: #3d3429; }
+
+[data-theme="dark"] .mall-menu {
+  background: #16181f;
+  border-color: #2a2d35;
+  box-shadow: 0 20px 34px -16px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .mall-option { color: #e8e8ea; }
+[data-theme="dark"] .mall-option:hover { background: #1c1f27; }
+[data-theme="dark"] .mall-option.selected { color: var(--brand); }
+[data-theme="dark"] .mall-check { color: var(--brand); }
+
+[data-theme="dark"] .card {
+  background: #16181f;
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 14px 26px -24px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .brand-name { color: #e8e8ea; }
+[data-theme="dark"] .brand-sub { color: #9397a2; }
+[data-theme="dark"] .eyebrow { color: #8a8e98; }
+[data-theme="dark"] .hero-place { color: #e8e8ea; }
+[data-theme="dark"] .field-label { color: #8a8e98; }
+
+[data-theme="dark"] .gauge-pct { color: #e8e8ea; }
+[data-theme="dark"] .gauge-pct em { color: #8a8e98; }
+[data-theme="dark"] .gauge-when { color: #737884; }
+
+[data-theme="dark"] .updated-pill,
+[data-theme="dark"] .source-chip {
+  background: #1c1f27;
+  border-color: #2a2d35;
+  color: #b9bdc6;
+}
+
+[data-theme="dark"] .source-chip.is-live {
+  border-color: rgba(79, 195, 168, 0.28);
+  background: rgba(79, 195, 168, 0.1);
+  color: #4fc3a8;
+}
+
+[data-theme="dark"] .place-item {
+  background: #16181f;
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 14px -15px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .place-name { color: #e8e8ea; }
+[data-theme="dark"] .place-level { color: #9397a2; }
+[data-theme="dark"] .place-pct { color: #d7d9e0; }
+[data-theme="dark"] .place-chevron { color: #4b4f59; }
+
+[data-theme="dark"] .alert-card {
+  background: #2a1b14;
+  border-color: #4a2d1f;
+}
+
+[data-theme="dark"] .alert-title { color: #e8e8ea; }
+[data-theme="dark"] .alert-meta { color: #c9a48b; }
+[data-theme="dark"] .alert-chevron { color: #7a5a44; }
+[data-theme="dark"] .alert-icon { background: #fff; color: #f0855c; }
+
+[data-theme="dark"] .chat-scroll { background: transparent; }
+[data-theme="dark"] .bubble-user { background: #3d2a1b; color: #e8e8ea; }
+[data-theme="dark"] .bubble-user strong { color: #f2c4b0; }
+[data-theme="dark"] .bubble-bot {
+  background: #16181f;
+  border-color: #2a2d35;
+  color: #e8e8ea;
+  box-shadow: 0 8px 16px -18px rgba(0, 0, 0, 0.5);
+}
+[data-theme="dark"] .bubble-bot strong { color: #f29152; }
+[data-theme="dark"] .bubble strong { color: #e8e8ea; }
+[data-theme="dark"] .chat-input {
+  background: #16181f;
+  border-color: #2a2d35;
+  color: #e8e8ea;
+}
+[data-theme="dark"] .chat-input::placeholder { color: #737884; }
+[data-theme="dark"] .chat-input:focus { border-color: #f29152; }
+[data-theme="dark"] .typing span { background: #4b4f59; }
+[data-theme="dark"] .send-btn { background: var(--brand); }
+[data-theme="dark"] .chat-context { color: #737884; }
+[data-theme="dark"] .back-btn { color: #b9bdc6; }
+[data-theme="dark"] .back-btn:hover { background: #1c1f27; }
+
+[data-theme="dark"] .screen-head-text h1 { color: #e8e8ea; }
+[data-theme="dark"] .screen-head-text p { color: #9397a2; }
+
+[data-theme="dark"] .pred-name { color: #e8e8ea; }
+[data-theme="dark"] .pred-status { color: #f29152; }
+[data-theme="dark"] .pred-pct { color: #9397a2; }
+[data-theme="dark"] .forecast-head { color: #d7d9e0; }
+[data-theme="dark"] .chart-y-row b { color: #9397a2; }
+[data-theme="dark"] .chart-y-row span { color: #6b707c; }
+[data-theme="dark"] .chart-x span { color: #6b707c; }
+[data-theme="dark"] .chart-x span.is-now { color: #b9bdc6; }
+[data-theme="dark"] .chart-callout {
+  background: #2a1b14;
+  border-color: #4a2d1f;
+}
+[data-theme="dark"] .chart-callout p { color: #c9a48b; }
+[data-theme="dark"] .chart-callout strong { color: #f0855c; }
+[data-theme="dark"] .forecast-tip { color: #9397a2; }
+[data-theme="dark"] .forecast-tip strong { color: #c9cdd6; }
+
+[data-theme="dark"] .rank-name { color: #e8e8ea; }
+[data-theme="dark"] .rank-meta { color: #9397a2; }
+[data-theme="dark"] .rank-walk { color: #9397a2; }
+[data-theme="dark"] .rank-num { background: #2a2d35; color: #4fc3a8; }
+[data-theme="dark"] .rank-1 { background: #4fc3a8; color: #0a0b0f; }
+
+[data-theme="dark"] .status-text { color: #f29152; }
+[data-theme="dark"] .st-light { color: #4fc3a8; }
+[data-theme="dark"] .st-moderate { color: #e8c26a; }
+[data-theme="dark"] .st-busy { color: #f0855c; }
+
+[data-theme="dark"] .people-row { color: #3d3429; }
+
 /* ----------------------------------------------------------- responsive */
 
 /* Native shell (Capacitor): full-bleed screen, real system status bar. */
@@ -1257,5 +1468,92 @@ input:focus-visible {
 @media (min-width: 1024px) and (max-width: 1420px) {
   .showcase {
     max-width: 690px;
+  }
+}
+
+/* ----------------------------------------------------------- animation */
+
+.screen-scroll {
+  animation: screenEnter 0.45s ease both;
+}
+
+@keyframes screenEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Cross-fade between screens so navigation feels native, not a full page reload. */
+.screen {
+  position: relative;
+}
+
+.screen[data-exit="true"] {
+  animation: screenExit 0.22s ease both;
+}
+
+@keyframes screenExit {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* Gauge needle sweeps into position on mount / data change. */
+.gauge-needle {
+  animation: needleSweep 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-theme="dark"] .gauge-needle {
+  stroke: #3d3f46;
+}
+
+@keyframes needleSweep {
+  from {
+    transform: rotate(0deg);
+    transform-origin: 100px 96px;
+  }
+  to {
+    transform: none;
+    transform-origin: 100px 96px;
+  }
+}
+
+/* Gentle pulse on the live indicator chip. */
+.source-chip.is-live {
+  animation: livePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+/* Press feedback on interactive cards/lists. */
+.place-item:active,
+.alert-card:active,
+.mall-option:active {
+  transform: scale(0.98);
+}
+
+/* Mall art reveals slightly after the meter. */
+.mall-art-wrap {
+  animation: artReveal 0.5s ease both 0.15s;
+  opacity: 0;
+}
+
+@keyframes artReveal {
+  to {
+    opacity: 1;
   }
 }

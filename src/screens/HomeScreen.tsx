@@ -12,9 +12,11 @@ type Props = {
   updatedAt: Date;
   dataSource: 'checking' | 'live' | 'estimated';
   onMallChange: (id: string) => void;
+  theme: 'light' | 'dark';
+  onThemeToggle: () => void;
 };
 
-export function HomeScreen({ mall, selected, updatedAt, dataSource, onMallChange }: Props) {
+export function HomeScreen({ mall, selected, updatedAt, dataSource, onMallChange, theme, onThemeToggle }: Props) {
   const filled = Math.max(1, Math.round((selected.pct / 100) * 5));
   const sourceLabel =
     dataSource === 'live' ? 'Live foot traffic' : dataSource === 'checking' ? 'Checking data…' : 'Estimated';
@@ -30,6 +32,14 @@ export function HomeScreen({ mall, selected, updatedAt, dataSource, onMallChange
             <h1 className="brand-name">Crowd Control</h1>
             <p className="brand-sub">Live crowd data for Philippine malls</p>
           </div>
+          <button
+            type="button"
+            className="theme-toggle"
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            onClick={onThemeToggle}
+          >
+            <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={20} strokeWidth={2} />
+          </button>
         </header>
 
         <div className="field-label">MALL</div>
