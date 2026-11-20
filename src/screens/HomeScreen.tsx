@@ -4,7 +4,6 @@ import { MallPicker } from '../components/MallPicker';
 import { formatTime, headlineOf } from '../data';
 import type { Mall, Place } from '../data';
 import { Icon } from '../icons';
-import { useInstallPrompt } from '../install';
 
 type Props = {
   mall: Mall;
@@ -17,7 +16,6 @@ type Props = {
 
 export function HomeScreen({ mall, selected, updatedAt, dataSource, onMallChange }: Props) {
   const filled = Math.max(1, Math.round((selected.pct / 100) * 5));
-  const install = useInstallPrompt();
   const sourceLabel =
     dataSource === 'live' ? 'Live foot traffic' : dataSource === 'checking' ? 'Checking data…' : 'Estimated';
 
@@ -30,23 +28,8 @@ export function HomeScreen({ mall, selected, updatedAt, dataSource, onMallChange
           </div>
           <div className="brand-text">
             <h1 className="brand-name">Crowd Control</h1>
-            <p className="brand-sub">
-              Real-time crowd estimates for
-              <br />
-              Philippine malls
-            </p>
+            <p className="brand-sub">Live crowd data for Philippine malls</p>
           </div>
-          {install.available && (
-            <button
-              type="button"
-              className="install-btn"
-              onClick={install.install}
-              title="Install Crowd Control on this device"
-            >
-              <Icon name="download" size={14} strokeWidth={2} />
-              <span>Install</span>
-            </button>
-          )}
         </header>
 
         <div className="field-label">MALL</div>
